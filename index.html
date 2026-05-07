@@ -1,726 +1,801 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GOTHIC PSYCHE AWAKENING ｜ 哥德式黑化人格覺醒</title>
-    <!-- 引入巴洛克與哥德古典字體 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>心鏡似境 ‧ 像素占卜</title>
     <style>
+        /* 溫馨、雅緻的日系水彩與復古寶可夢卡帶配色 */
         :root {
-            --bg-dark: #0a080d; /* 深黑底色帶極微弱紫灰 */
-            --gothic-black: #110e14; /* 沉重石碑黑 */
-            --gothic-red: #580c10; /* 深黯血紅 */
-            --gothic-gold: #aa8f66; /* 古董黯金 */
-            --gothic-silver: #8d9499; /* 鐵鏽銀灰 */
-            --text-light: #e4e0e8;
-            --text-muted: #807a8a;
-            --transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+            --jp-bg: #fcfaf7;          /* 溫暖的和紙米色 */
+            --jp-paper: #ffffff;       /* 潔淨白 */
+            --jp-wood: #4a3e3d;        /* 柔和木質褐 */
+            --jp-gold: #c5a880;        /* 霧金 */
+            --jp-mint: #a2b9bc;        /* 水彩粉綠 */
+            --jp-cherry: #e8b4b8;      /* 水彩櫻粉 */
+            --border-gold: #e2d3be;    /* 經典雙線金框 */
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            font-family: 'EB Garamond', 'Noto Sans TC', serif;
+            background-color: var(--jp-bg);
+            color: var(--jp-wood);
+            font-family: "Helvetica Neue", "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 50px 20px;
-            /* 暗黑哥德大教堂微光感 */
-            background-image: 
-                radial-gradient(circle at 50% 30%, rgba(88, 12, 16, 0.15) 0%, transparent 60%),
-                radial-gradient(circle at 10% 80%, rgba(170, 143, 102, 0.05) 0%, transparent 40%);
-            letter-spacing: 0.5px;
+            letter-spacing: 0.08em;
         }
 
-        /* 頂部巴洛克式金屬雕花飾條 */
-        .gothic-border-top {
-            width: 100%;
+        /* 主容器 */
+        .wrapper {
             max-width: 800px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            color: var(--gothic-gold);
-            margin-bottom: 30px;
-            opacity: 0.8;
-        }
-
-        .gothic-border-top .line {
-            height: 1px;
-            flex: 1;
-            background: linear-gradient(90deg, transparent, var(--gothic-gold), transparent);
-        }
-
-        .gothic-border-top i {
-            font-size: 1.2rem;
-            text-shadow: 0 0 8px rgba(170, 143, 102, 0.4);
-        }
-
-        /* 大氣的哥德式標題區 */
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-            max-width: 750px;
-        }
-
-        header h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 3rem;
-            color: var(--gothic-gold);
-            font-weight: 700;
-            letter-spacing: 5px;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 15px rgba(170, 143, 102, 0.2);
-        }
-
-        header p.subtitle {
-            font-family: 'Cinzel', serif;
-            font-size: 0.95rem;
-            color: var(--gothic-silver);
-            letter-spacing: 3px;
-            margin-bottom: 25px;
-        }
-
-        header p.intro-text {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: var(--text-light);
-            font-style: italic;
-            border-left: 2px solid var(--gothic-red);
-            border-right: 2px solid var(--gothic-red);
-            padding: 0 25px;
-        }
-
-        /* 遊戲主容器 */
-        .game-container {
-            max-width: 1000px;
             width: 100%;
+            background: var(--jp-paper);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(180, 165, 150, 0.08);
+            border: 1px solid rgba(197, 168, 128, 0.2);
+            padding: 40px 25px;
+            box-sizing: border-box;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        /* 標題區 */
+        .title-area {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .title-area h1 {
+            color: var(--jp-wood);
+            font-size: 1.8rem;
+            margin: 0;
+            font-weight: 500;
+            letter-spacing: 8px;
+        }
+
+        /* 10秒靜心吸吐儀式區（全像素精細樹苗） */
+        .zen-ritual-box {
+            background: #fafcf9;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 35px;
+            border: 1px solid rgba(197, 168, 128, 0.1);
+            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 50px;
         }
 
-        /* 三張卡牌排版 */
-        .cards-wrapper {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 35px;
-            width: 100%;
+        .ritual-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--jp-wood);
+            letter-spacing: 2px;
         }
 
-        @media (max-width: 800px) {
-            .cards-wrapper {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                max-width: 320px;
-            }
-            header h1 { font-size: 2.2rem; }
+        /* 🌲 像素風靜心小樹 SVG 容器 */
+        .tree-animation-container {
+            width: 130px;
+            height: 130px;
+            margin: 15px 0;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 2px solid var(--jp-wood);
+            box-shadow: 4px 4px 0px rgba(74, 62, 61, 0.15);
+            overflow: hidden;
+            position: relative;
         }
 
-        /* 3D 卡牌卡槽 */
-        .card-container {
-            perspective: 1200px;
-            aspect-ratio: 1 / 1.65;
-            width: 100%;
+        /* 呼吸引導文字 */
+        .ritual-guide {
+            font-size: 0.88rem;
+            color: var(--jp-wood);
+            min-height: 24px;
+            font-weight: 500;
+            margin-top: 15px;
+            letter-spacing: 1px;
+        }
+
+        /* 靜心啟動按鈕 */
+        .btn-jp {
+            background-color: var(--jp-wood);
+            color: #fff;
+            border: none;
+            padding: 12px 40px;
+            font-size: 0.9rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 12px rgba(74, 62, 61, 0.15);
+            margin-top: 15px;
+        }
+
+        .btn-jp:hover {
+            background-color: #382e2d;
+            transform: translateY(-1px);
+        }
+
+        .btn-jp:disabled {
+            background-color: #cccbc8;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        /* 牌陣設計 */
+        .spread-row {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            opacity: 0.4;
+            transition: opacity 0.5s ease;
+        }
+
+        .spread-active {
+            opacity: 1;
+        }
+
+        .card-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 155px;
+        }
+
+        .time-tag {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--jp-wood);
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        /* 牌卡盒與翻轉 */
+        .card-box {
+            width: 150px;
+            height: 265px;
+            perspective: 1000px;
             cursor: pointer;
         }
 
         .card-inner {
-            position: relative;
             width: 100%;
             height: 100%;
-            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            position: relative;
             transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.18, 0.89, 0.32, 1.1);
         }
 
-        /* 翻牌啟動 */
-        .card-container.flipped .card-inner {
-            transform: rotateY(180deg);
-        }
-
-        .card-front, .card-back {
+        .face {
             position: absolute;
             width: 100%;
             height: 100%;
-            -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
-            border-radius: 2px; /* 稜角分明 */
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            box-sizing: border-box;
         }
 
-        /* 【卡牌背面】：未點選前 */
-        .card-front {
-            background-color: var(--gothic-black);
-            border: 2px solid #252129;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px 20px;
-            /* 精緻的雕刻框線 */
-            outline: 1px solid rgba(170, 143, 102, 0.15);
-            outline-offset: -10px;
-            transition: var(--transition);
-        }
-
-        .card-container:hover .card-front {
-            border-color: var(--gothic-gold);
-            outline-color: var(--gothic-gold);
-            box-shadow: 0 0 25px rgba(170, 143, 102, 0.15), 0 15px 35px rgba(0,0,0,0.8);
-            transform: translateY(-8px);
-        }
-
-        .card-front .arch-top {
-            font-size: 1.5rem;
-            color: var(--gothic-gold);
-            opacity: 0.6;
-        }
-
-        .card-front .mystic-symbol {
-            font-size: 3rem;
-            color: var(--gothic-silver);
-            margin: auto 0;
-            opacity: 0.8;
-            filter: drop-shadow(0 0 8px rgba(0,0,0,0.5));
-        }
-
-        .card-front .card-number {
-            font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
-            color: var(--gothic-gold);
-            letter-spacing: 2px;
-            border-top: 1px solid rgba(170, 143, 102, 0.2);
-            padding-top: 10px;
-            width: 80px;
-            text-align: center;
-        }
-
-        /* 【卡牌正面】：點擊翻開後 */
+        /* 卡背：和風像素紋樣 */
         .card-back {
-            background-color: #08060a;
-            transform: rotateY(180deg);
+            background-color: #fafcf9;
+            border: 2px solid var(--jp-wood);
             display: flex;
             flex-direction: column;
-            border: 2px solid var(--gothic-gold);
-            outline: 1px solid rgba(170, 143, 102, 0.3);
-            outline-offset: -6px;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 3px 3px 0px rgba(74, 62, 61, 0.1);
+            background-image: 
+                radial-gradient(circle at 50% 50%, transparent 10px, #ebdccb 11px, #ebdccb 12px, transparent 13px);
+            background-size: 16px 16px;
         }
 
-        /* 哥德版畫/線稿風插圖區 */
-        .illustration-area {
-            flex: 1;
-            background-color: #030204;
+        /* 像素中心鏡飾 */
+        .card-back::before {
+            content: "";
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--jp-gold);
+            background-color: #fafcf9;
+            image-rendering: pixelated;
+        }
+
+        /* 卡正面 */
+        .card-front {
+            transform: rotateY(180deg);
+            background-color: #ffffff;
+            color: #2b251d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 3px 3px 0px rgba(74, 62, 61, 0.1);
+            border: 2px solid var(--jp-wood);
+            padding: 10px;
+        }
+
+        /* 像素插畫圖區 */
+        .watercolor-illustration {
+            width: 125px;
+            height: 235px;
+            border: 1px solid #eae2d5;
+            background-color: #fcfbf7;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 2px solid var(--gothic-gold);
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            image-rendering: pixelated;
         }
 
-        /* 裝飾性格線 */
-        .illustration-area::before {
-            content: '';
-            position: absolute;
-            inset: 6px;
-            border: 1px solid rgba(170, 143, 102, 0.08);
-            pointer-events: none;
-        }
-
-        .illustration-area svg {
-            width: 100%;
-            height: 100%;
-            padding: 25px;
-        }
-
-        /* 卡牌標題框 */
-        .card-title-box {
-            background-color: var(--gothic-black);
-            padding: 15px 10px;
-            text-align: center;
-        }
-
-        .card-title-box h3 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.05rem;
-            color: var(--gothic-gold);
+        /* 翻牌後顯示於卡片下方的置中卡牌名稱 */
+        .card-under-name {
+            font-size: 0.9rem;
+            color: var(--jp-wood);
             letter-spacing: 2px;
-            font-weight: 600;
-        }
-
-        /* 哥德式解析結果面板 */
-        .result-panel {
-            max-width: 780px;
+            margin-top: 15px;
+            font-weight: 500;
+            text-align: center;
+            min-height: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
             width: 100%;
-            background-color: var(--gothic-black);
-            border: 1px solid rgba(170, 143, 102, 0.3);
-            outline: 1px solid rgba(170, 143, 102, 0.1);
-            outline-offset: 4px;
-            padding: 45px 40px;
-            display: none;
-            animation: fadeInResult 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-            position: relative;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
         }
 
-        @keyframes fadeInResult {
-            from { opacity: 0; transform: translateY(30px); }
+        .card-under-name.show {
+            opacity: 1;
+        }
+
+        .rev-effect {
+            transform: rotate(180deg);
+        }
+
+        /* 報告區 */
+        .report-area {
+            display: none;
+            border-top: 1px solid rgba(197, 168, 128, 0.2);
+            padding-top: 35px;
+            margin-top: 15px;
+            animation: softFade 0.6s ease forwards;
+        }
+
+        @keyframes softFade {
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 巴洛克花紋角落裝飾 */
-        .result-panel::before {
-            content: '♦';
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            font-size: 0.8rem;
-            color: var(--gothic-gold);
-            opacity: 0.5;
-        }
-
-        .result-panel::after {
-            content: '♦';
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 0.8rem;
-            color: var(--gothic-gold);
-            opacity: 0.5;
-        }
-
-        .result-header {
+        .report-main-title {
+            color: var(--jp-wood);
+            font-size: 1.2rem;
+            margin-bottom: 25px;
             text-align: center;
-            border-bottom: 1px solid rgba(170, 143, 102, 0.2);
-            padding-bottom: 25px;
-            margin-bottom: 30px;
-        }
-
-        .result-header .symbol {
-            font-size: 1.5rem;
-            color: var(--gothic-red);
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .result-subtitle {
-            font-family: 'Cinzel', serif;
-            font-size: 0.8rem;
-            color: var(--gothic-silver);
             letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
+            font-weight: 600;
         }
 
-        .result-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text-light);
-            letter-spacing: 2px;
+        .report-card {
+            background-color: var(--jp-paper);
+            border: 2px solid var(--jp-wood);
+            border-radius: 4px;
+            padding: 22px;
+            margin-bottom: 24px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
         }
 
-        /* 雙項核心特質指標 */
-        .stat-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 35px;
+        .report-card-img {
+            width: 80px;
+            height: 135px;
+            border: 1px solid var(--jp-wood);
+            flex-shrink: 0;
+            background-color: #fafcf9;
+            image-rendering: pixelated;
         }
 
-        @media (max-width: 500px) {
-            .stat-grid { grid-template-columns: 1fr; }
+        .report-card-text {
+            flex-grow: 1;
         }
 
-        .stat-card {
-            background-color: rgba(0,0,0,0.3);
-            border: 1px solid rgba(170, 143, 102, 0.15);
-            padding: 15px 18px;
-        }
-
-        .stat-info {
+        .report-card-header {
             display: flex;
             justify-content: space-between;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--gothic-silver);
+            align-items: center;
+            border-bottom: 1.5px dashed rgba(197, 168, 128, 0.2);
+            padding-bottom: 5px;
             margin-bottom: 8px;
-            font-family: 'Cinzel', serif;
         }
 
-        .stat-track {
-            height: 4px;
-            background-color: #221d28;
-            position: relative;
-        }
-
-        .stat-fill {
-            height: 100%;
-            background-color: var(--gothic-red);
-            width: 0%;
-            transition: width 1.2s cubic-bezier(0.1, 0.8, 0.2, 1);
-            box-shadow: 0 0 8px var(--gothic-red);
-        }
-
-        /* 解析本文 */
-        .analysis-section {
-            margin-bottom: 30px;
-        }
-
-        .analysis-section h4 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
-            color: var(--gothic-gold);
-            margin-bottom: 12px;
-            letter-spacing: 1.5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .analysis-section h4 i {
+        .report-card-title {
             font-size: 0.95rem;
-            color: var(--gothic-red);
-        }
-
-        .analysis-section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-light);
-            text-align: justify;
-        }
-
-        /* 重新尋求啟示按鈕 */
-        .btn-gothic {
-            width: 100%;
-            background-color: transparent;
-            border: 1px solid var(--gothic-gold);
-            color: var(--gothic-gold);
-            padding: 15px;
-            font-family: 'Cinzel', serif;
-            font-size: 1rem;
             font-weight: 600;
-            letter-spacing: 3px;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
+            color: var(--jp-wood);
         }
 
-        .btn-gothic:hover {
-            background-color: var(--gothic-red);
-            border-color: var(--gothic-red);
-            color: #fff;
-            box-shadow: 0 0 15px rgba(88, 12, 16, 0.4);
+        .report-card-roman {
+            font-family: "Times New Roman", Georgia, serif;
+            font-size: 1rem;
+            color: var(--jp-gold);
         }
 
-        /* 頁腳 */
-        footer {
-            margin-top: 60px;
-            font-family: 'Cinzel', serif;
+        .report-card-keyword {
             font-size: 0.8rem;
-            color: var(--gothic-silver);
-            opacity: 0.5;
-            letter-spacing: 2px;
+            color: var(--jp-gold);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .report-card-detail {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            color: #554a3f;
+            margin: 0;
+        }
+
+        .action-row {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .btn-sub {
+            background-color: #fff;
+            color: var(--jp-wood);
+            border: 1px solid #dcd3c7;
+            padding: 10px 30px;
+            font-size: 0.85rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-sub:hover {
+            border-color: var(--jp-gold);
+            background-color: #faf6f0;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--jp-gold);
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <!-- 頂部巴洛克雕飾 -->
-    <div class="gothic-border-top">
-        <span class="line"></span>
-        <i class="fa-solid fa-cross"></i>
-        <span class="line"></span>
-    </div>
+    <div class="wrapper">
+        <div class="title-area">
+            <h1>心鏡似境</h1>
+        </div>
 
-    <header>
-        <h1>THE GOTHIC AWAKENING</h1>
-        <p class="subtitle">哥德式深層心理覺醒</p>
-        <p class="intro-text">
-            「凡光芒所及，皆有陰影悄然佇立。」<br>
-            屏除一切喧囂與雜念。當理智的枷鎖在無聲中碎裂時，你靈魂最深處將覺醒出何種壓抑已久的力量？<br>
-            請在三張被命運封印的哥德手繪牌卡中，憑第一直覺點選一張。
-        </p>
-    </header>
-
-    <div class="game-container">
-        <!-- 卡牌區域 -->
-        <div class="cards-wrapper" id="cardsWrapper">
+        <div class="zen-ritual-box">
+            <div class="ritual-title">心鏡澄清 ‧ 呼吸調息</div>
             
-            <!-- 卡牌 1：冷酷旁觀者（孤傲之鴉） -->
-            <div class="card-container" onclick="selectCard(1, this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <div class="arch-top"><i class="fa-solid fa-moon"></i></div>
-                        <div class="mystic-symbol"><i class="fa-brands fa-earlybirds"></i></div>
-                        <div class="card-number">I</div>
-                    </div>
-                    <div class="card-back" id="card-1-back">
-                        <div class="illustration-area">
-                            <!-- 孤傲之鴉 SVG：與「冷酷旁觀者 / 高空俯瞰 / 毫無溫度的寂靜」完美契合 -->
-                            <svg viewBox="0 0 120 180" xmlns="http://www.w3.org/2000/svg">
-                                <!-- 大教堂尖頂幾何構圖 -->
-                                <path d="M60 10 L15 150 L105 150 Z" fill="none" stroke="#221d28" stroke-width="1"/>
-                                <path d="M60 40 L35 150 M60 40 L85 150" fill="none" stroke="#221d28" stroke-width="0.8" stroke-dasharray="2,2"/>
-                                <!-- 弦月 -->
-                                <path d="M90 35 A 15 15 0 0 0 65 20 A 15 15 0 1 1 90 35" fill="none" stroke="#aa8f66" stroke-width="1"/>
-                                <!-- 枯枝與站立在頂點的烏鴉 -->
-                                <path d="M60 100 Q 40 120 30 140 M60 110 Q 75 125 90 135" fill="none" stroke="#580c10" stroke-width="1.5" stroke-linecap="round"/>
-                                <!-- 烏鴉身體 -->
-                                <path d="M50 90 Q60 80 65 95 L72 105 Q60 102 50 90 Z" fill="#110e14" stroke="#8d9499" stroke-width="1" />
-                                <!-- 烏鴉頭部、嘴與尾羽 -->
-                                <circle cx="49" cy="88" r="4" fill="#110e14" stroke="#8d9499" stroke-width="0.8"/>
-                                <path d="M46 88 L40 90 L46 91" fill="#aa8f66"/>
-                                <path d="M70 103 L82 115 L74 107" stroke="#110e14" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <div class="card-title-box">
-                            <h3>THE RAVEN</h3>
-                        </div>
-                    </div>
-                </div>
+            <div class="tree-animation-container">
+                <svg viewBox="0 0 40 40" width="100%" height="100%" id="treeSvg" style="image-rendering: pixelated;">
+                    <rect x="0" y="34" width="40" height="6" fill="#302524" />
+                    <rect x="0" y="35" width="40" height="3" fill="#8c6d58" />
+                    <rect x="0" y="34" width="40" height="1" fill="#a2b9bc" />
+                    
+                    <g id="treeTrunk">
+                        <rect x="17" y="30" width="6" height="4" fill="#302524" />
+                        <rect x="18" y="30" width="4" height="4" fill="#604a49" />
+                        <g id="trunkSegment1" opacity="0" style="transition: opacity 0.5s ease 0.5s;">
+                            <rect x="18" y="24" width="4" height="6" fill="#302524" />
+                            <rect x="19" y="24" width="2" height="6" fill="#7d6160" />
+                            <rect x="19" y="24" width="1" height="6" fill="#9e807f" /> </g>
+                        <g id="trunkSegment2" opacity="0" style="transition: opacity 0.5s ease 1.5s;">
+                            <rect x="18" y="18" width="4" height="6" fill="#302524" />
+                            <rect x="19" y="18" width="2" height="6" fill="#7d6160" />
+                        </g>
+                    </g>
+                    
+                    <g id="treeLeaves" opacity="0" style="transition: opacity 1.5s ease 2.5s;">
+                        <path d="M 14,10 H 26 V 11 H 28 V 13 H 29 V 19 H 28 V 21 H 26 V 22 H 14 V 21 H 12 V 19 H 11 V 13 H 12 V 11 H 14 Z" fill="#302524" />
+                        <path d="M 15,11 H 25 V 12 H 27 V 14 H 28 V 18 H 27 V 20 H 25 V 21 H 15 V 20 H 13 V 18 H 12 V 14 H 13 V 12 H 15 Z" fill="#3c5e32" />
+                        <path d="M 16,12 H 24 V 13 H 26 V 15 H 27 V 17 H 26 V 19 H 24 V 20 H 16 V 19 H 14 V 17 H 13 V 15 H 14 V 13 H 16 Z" fill="#5c9c42" />
+                        <rect x="16" y="13" width="5" height="3" fill="#a4db44" />
+                        <rect x="21" y="14" width="3" height="2" fill="#a4db44" />
+                        <rect x="17" y="14" width="1" height="1" fill="#ffffff" />
+                    </g>
+
+                    <g id="cherryBlossoms" opacity="0" style="transition: opacity 2s ease 5s;">
+                        <g transform="translate(17, 3)">
+                            <path d="M 2,0 H 4 V 1 H 5 V 0 H 7 V 1 H 8 V 3 H 7 V 4 H 5 V 5 H 4 V 6 H 2 V 5 H 1 V 4 H 0 V 1 H 1 V 0 Z" fill="#302524" />
+                            <path d="M 2,1 H 3 V 2 H 4 V 1 H 6 V 2 H 7 V 3 H 6 V 4 H 4 V 5 H 3 V 4 H 1 V 3 H 2 V 1 Z" fill="#e8b4b8" />
+                            <rect x="2" y="1" width="1" height="1" fill="#ffffff" />
+                        </g>
+                        <g transform="translate(6, 12) scale(0.7)">
+                            <path d="M 2,0 H 4 V 1 H 5 V 0 H 7 V 1 H 8 V 3 H 7 V 4 H 5 V 5 H 4 V 6 H 2 V 5 H 1 V 4 H 0 V 1 H 1 V 0 Z" fill="#302524" />
+                            <path d="M 2,1 H 3 V 2 H 4 V 1 H 6 V 2 H 7 V 3 H 6 V 4 H 4 V 5 H 3 V 4 H 1 V 3 H 2 V 1 Z" fill="#f2c4c9" />
+                        </g>
+                        <g transform="translate(27, 10) scale(0.7)">
+                            <path d="M 2,0 H 4 V 1 H 5 V 0 H 7 V 1 H 8 V 3 H 7 V 4 H 5 V 5 H 4 V 6 H 2 V 5 H 1 V 4 H 0 V 1 H 1 V 0 Z" fill="#302524" />
+                            <path d="M 2,1 H 3 V 2 H 4 V 1 H 6 V 2 H 7 V 3 H 6 V 4 H 4 V 5 H 3 V 4 H 1 V 3 H 2 V 1 Z" fill="#f4ccd1" />
+                        </g>
+                    </g>
+                </svg>
             </div>
 
-            <!-- 卡牌 2：背叛的操盤手（提線聖所） -->
-            <div class="card-container" onclick="selectCard(2, this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <div class="arch-top"><i class="fa-solid fa-hands"></i></div>
-                        <div class="mystic-symbol"><i class="fa-solid fa-fingerprint"></i></div>
-                        <div class="card-number">II</div>
-                    </div>
-                    <div class="card-back" id="card-2-back">
-                        <div class="illustration-area">
-                            <!-- 傀儡提線與聖所拱門 SVG：契合「看穿人性弱點 / 幕後撥弄琴弦 / 傀儡大師」 -->
-                            <svg viewBox="0 0 120 180" xmlns="http://www.w3.org/2000/svg">
-                                <!-- 雙層哥德式尖拱門 -->
-                                <path d="M25 160 V 70 A 35 35 0 0 1 95 70 V 160" fill="none" stroke="#221d28" stroke-width="2" />
-                                <path d="M32 160 V 73 A 28 28 0 0 1 88 73 V 160" fill="none" stroke="#aa8f66" stroke-width="0.8" stroke-dasharray="4,2" />
-                                <!-- 上方懸吊控制的「十字木偶架」 -->
-                                <path d="M40 25 L80 35 M42 35 L78 25" stroke="#aa8f66" stroke-width="1.5" stroke-linecap="round"/>
-                                <!-- 垂直垂落的精細提線 -->
-                                <line x1="45" y1="27" x2="40" y2="105" stroke="#580c10" stroke-width="0.8" stroke-dasharray="2,3" />
-                                <line x1="75" y1="33" x2="80" y2="105" stroke="#580c10" stroke-width="0.8" stroke-dasharray="2,3" />
-                                <line x1="60" y1="30" x2="60" y2="115" stroke="#8d9499" stroke-width="0.8" stroke-dasharray="1,2" />
-                                <!-- 被懸空吊起、佈滿荊棘的石雕心臟 / 靈魂容器 -->
-                                <path d="M60 115 C 50 100, 40 110, 60 132 C 80 110, 70 100, 60 115 Z" fill="#580c10" stroke="#aa8f66" stroke-width="1" />
-                                <!-- 環繞心臟的荊棘圈 -->
-                                <circle cx="60" cy="116" r="10" fill="none" stroke="#110e14" stroke-width="1.5" stroke-dasharray="3,1"/>
-                            </svg>
-                        </div>
-                        <div class="card-title-box">
-                            <h3>THE SANCTUM</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 卡牌 3：失控的推土機（深淵長廊） -->
-            <div class="card-container" onclick="selectCard(3, this)">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <div class="arch-top"><i class="fa-solid fa-shield-halved"></i></div>
-                        <div class="mystic-symbol"><i class="fa-solid fa-hourglass-half"></i></div>
-                        <div class="card-number">III</div>
-                    </div>
-                    <div class="card-back" id="card-3-back">
-                        <div class="illustration-area">
-                            <!-- 深淵長廊 SVG：契合「不顧一切的鋼鐵意志 / 無視紅燈與規則 / 瘋狂突進的通道」 -->
-                            <svg viewBox="0 0 120 180" xmlns="http://www.w3.org/2000/svg">
-                                <!-- 透視長廊地平線 -->
-                                <line x1="10" y1="160" x2="110" y2="160" stroke="#221d28" stroke-width="1"/>
-                                <!-- 由大至小、不斷往遠方深處延伸的哥德拱門 -->
-                                <path d="M15 160 V 60 A 45 45 0 0 1 105 60 V 160" fill="none" stroke="#221d28" stroke-width="1.5"/>
-                                <path d="M30 160 V 80 A 30 30 0 0 1 90 80 V 160" fill="none" stroke="#aa8f66" stroke-width="1.2"/>
-                                <path d="M42 160 V 95 A 18 18 0 0 1 78 95 V 160" fill="none" stroke="#580c10" stroke-width="1"/>
-                                <path d="M52 160 V 110 A 8 8 0 0 1 68 110 V 160" fill="none" stroke="#8d9499" stroke-width="0.8" stroke-dasharray="2,2"/>
-                                <!-- 通道終點、代表意志覺醒的爆裂極星 (The Unstoppable Point) -->
-                                <g transform="translate(60,118)">
-                                    <line x1="-12" y1="0" x2="12" y2="0" stroke="#aa8f66" stroke-width="1.5"/>
-                                    <line x1="0" y1="-12" x2="0" y2="12" stroke="#aa8f66" stroke-width="1.5"/>
-                                    <line x1="-8" y1="-8" x2="8" y2="8" stroke="#580c10" stroke-width="1"/>
-                                    <line x1="8" y1="-8" x2="-8" y2="8" stroke="#580c10" stroke-width="1"/>
-                                    <circle cx="0" cy="0" r="3" fill="#580c10"/>
-                                </g>
-                                <!-- 長廊地面深陷的透視單點線 -->
-                                <line x1="15" y1="160" x2="52" y2="135" stroke="#221d28" stroke-width="1"/>
-                                <line x1="105" y1="160" x2="68" y2="135" stroke="#221d28" stroke-width="1"/>
-                            </svg>
-                        </div>
-                        <div class="card-title-box">
-                            <h3>THE PASSAGE</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <div class="ritual-guide" id="ritualGuide">準備好後，請點擊按鈕開始吸吐靜心</div>
+            <button class="btn-jp" id="startBtn" onclick="startBreathingRitual()">開始靜心調息</button>
         </div>
 
-        <!-- 哥德解析面板 -->
-        <div class="result-panel" id="resultPanel">
-            <div class="result-header">
-                <span class="symbol">♰</span>
-                <div class="result-subtitle">Psychic Shadow Archive</div>
-                <div class="result-title" id="resultTitle">黑化型態：【冷酷的旁觀者】</div>
-            </div>
-
-            <!-- 兩項核心指標 -->
-            <div class="stat-grid">
-                <div class="stat-card">
-                    <div class="stat-info">
-                        <span id="stat-name-1">精神抽離係數</span>
-                        <span id="stat-val-1">95%</span>
-                    </div>
-                    <div class="stat-track">
-                        <div class="stat-fill" id="stat-bar-1"></div>
+        <div class="spread-row" id="spreadRow">
+            <div class="card-column">
+                <div class="time-tag">過去之因</div>
+                <div class="card-box" onclick="drawCard(0)">
+                    <div class="card-inner" id="inner0">
+                        <div class="face card-back"></div>
+                        <div class="face card-front" id="front0"></div>
                     </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-info">
-                        <span id="stat-name-2">冷暴力防護值</span>
-                        <span id="stat-val-2">90%</span>
-                    </div>
-                    <div class="stat-track">
-                        <div class="stat-fill" id="stat-bar-2"></div>
+                <div class="card-under-name" id="nameLabel0"></div>
+            </div>
+            <div class="card-column">
+                <div class="time-tag">現在之境</div>
+                <div class="card-box" onclick="drawCard(1)">
+                    <div class="card-inner" id="inner1">
+                        <div class="face card-back"></div>
+                        <div class="face card-front" id="front1"></div>
                     </div>
                 </div>
+                <div class="card-under-name" id="nameLabel1"></div>
             </div>
-
-            <!-- 詳細解讀 -->
-            <div class="analysis-section">
-                <h4><i class="fa-solid fa-gothic"></i> 命運之牌：潛意識深淵心理</h4>
-                <p id="psychologyText">
-                    這張牌原本象徵翱翔、自由與俯瞰的視野。然而，在哥德美學的深色語境中，它化作盤旋在大教堂尖頂頂端的寒鴉。當你被徹底激怒、跌入黑化深淵時，你的心門會降下絕對零度的閘門——這是一種「極端的情感抽離」。你不再试图融入任何群體或迎合世俗，而是以一種毫無溫度、完全超脫的視角冷冷看著這一切。
-                </p>
+            <div class="card-column">
+                <div class="time-tag">未來之象</div>
+                <div class="card-box" onclick="drawCard(2)">
+                    <div class="card-inner" id="inner2">
+                        <div class="face card-back"></div>
+                        <div class="face card-front" id="front2"></div>
+                    </div>
+                </div>
+                <div class="card-under-name" id="nameLabel2"></div>
             </div>
+        </div>
 
-            <div class="analysis-section" style="margin-bottom: 40px;">
-                <h4><i class="fa-solid fa-skull"></i> 覺醒力量：不可侵犯之陰影</h4>
-                <p id="powerText">
-                    「存在抹除」。在你被逼到臨界點時，你不會選擇嘶吼、痛哭或瘋狂報復。相反，你最大的反擊是直接將對方的存在感從你的精神宇宙中「連根拔起」。不論對方如何試圖挑釁或道歉，在你眼裡都只是無聲、無形的灰燼。這種絕對的冷漠，會在精神上形成比任何爭吵都更加致命的冰封流放。
-                </p>
+        <div class="report-area" id="reportArea">
+            <div class="report-main-title">心鏡映照解讀報告</div>
+            <div id="reportContent"></div>
+            
+            <div class="action-row">
+                <button class="btn-sub" onclick="copyReportText()">複製此占卜報告</button>
             </div>
-
-            <!-- 重新測試按鈕 -->
-            <button class="btn-gothic" onclick="resetGame()">
-                <i class="fa-solid fa-vial"></i> RE-AWAKEN ｜ 重新尋求啟示
-            </button>
         </div>
     </div>
 
-    <footer>
-        © GOTHIC PSYCHE AWAKENING INC. NO HALLOWEEN TRICK. ♰
-    </footer>
+    <div class="footer">
+        © 2026 心鏡似境
+    </div>
 
     <script>
-        // 與卡牌完全對應的哥德文學式解答文本
-        const gothicDatabase = {
-            1: {
-                title: "【冷酷的旁觀者】(The Detached Exile)",
-                stat1Label: "精神抽離係數",
-                stat1Val: "95%",
-                stat2Label: "冷暴力防護值",
-                stat2Val: "90%",
-                psychology: "這張【THE RAVEN】原本象徵寬廣的視野。但在哥德心理學的壓抑語境中，它化作在大教堂石像鬼旁、在晦暗弦月下孤傲盤旋的寒鴉。當你被徹底激怒、跨過理智的臨界點時，你體內將開啟「極端的情感抽離」。你不再試圖理解或融入任何充滿偏見的群體，而是主動切斷所有靈魂的絲線。你站在極高處，用毫無溫度、完全置身事外的寂靜目光，俯瞰世俗的拉扯與爭吵。",
-                power: "「存在抹除 (Absolute Erasing)」。你最可怕的陰影盾牌不是報復，而是瞬間將對方的存在感「歸零」。你能在轉瞬間收回所有的在乎，讓對方在你面前形同空氣。不論對方如何道歉、示好或挑釁，在你眼裡都只是無聲飛散的灰塵。這種極致的「精神流放」，會讓激怒你的人感到被世界遺忘的、刺骨的孤獨感。"
+        /* 🎨 寶可夢卡帶風格 (Pokemon Retro GBA Style) 精緻像素 SVG 生成範本 */
+        const pixelTemplates = {
+            // 大阿爾克那：精緻的像素心靈魔方與對應元素
+            major: (id) => {
+                const colors = ["#e8b4b8", "#a2b9bc", "#c5a880", "#8cb382", "#ebdccb"];
+                const c = colors[id % colors.length];
+                return `<svg viewBox="0 0 40 48" width="100%" height="100%" style="image-rendering: pixelated;">
+                    <rect width="40" height="48" fill="#fcfbf7"/>
+                    <rect x="2" y="2" width="36" height="44" fill="none" stroke="#302524" stroke-width="2"/>
+                    <rect x="10" y="14" width="20" height="20" fill="#302524"/>
+                    <rect x="11" y="15" width="18" height="18" fill="${c}"/>
+                    <rect x="11" y="15" width="18" height="6" fill="#ffffff" opacity="0.4"/>
+                    <rect x="15" y="20" width="10" height="10" fill="#302524"/>
+                    <rect x="16" y="21" width="8" height="8" fill="#ffffff"/>
+                    <rect x="6" y="8" width="2" height="2" fill="#c5a880"/>
+                    <rect x="32" y="8" width="2" height="2" fill="#c5a880"/>
+                    <rect x="6" y="38" width="2" height="2" fill="#c5a880"/>
+                    <rect x="32" y="38" width="2" height="2" fill="#c5a880"/>
+                </svg>`;
             },
-            2: {
-                title: "【背叛的操盤手】(The Puppet Master)",
-                stat1Label: "人心掌控度",
-                stat1Val: "92%",
-                stat2Label: "心靈控制力",
-                stat2Val: "96%",
-                psychology: "這張【THE SANCTUM】原本代表神聖的默契、信任與同行。然而一旦黑化，你看穿了人性最深的弱點——對孤獨的致命恐懼與對歸屬感的依賴。你不再將真心託付給任何人，而是將人際關係退化成精密計算的石質建築。你隱遁至暗影深處，像操弄傀儡提線般，優雅卻冷靜地操控局勢，讓對方的「信任」反過來成為你武裝的防線。",
-                power: "「無形的人際絞殺」。被激怒時，你不會展露任何攻擊性，反而會戴上最慈悲、溫和的面具。你不會親自動手，而是利用精準的心理暗示，在暗地裡編織蜘蛛網般的隔閡，讓對方周圍的人群在不知不覺中孤立他、質疑他。當對方發現自己陷入孤立無援、四面楚歌的慘境時，他甚至還會哭著向最深沉、戴著聖人面具的你尋求安撫。"
+            // 聖杯組：精雕細琢的像素聖杯與流動水滴
+            cup: (num) => {
+                return `<svg viewBox="0 0 40 48" width="100%" height="100%" style="image-rendering: pixelated;">
+                    <rect width="40" height="48" fill="#fcfbf7"/>
+                    <rect x="2" y="2" width="36" height="44" fill="none" stroke="#302524" stroke-width="2"/>
+                    <path d="M 12,14 H 28 V 16 H 26 V 22 H 24 V 24 H 22 V 30 H 24 V 32 H 16 V 30 H 18 V 24 H 16 V 22 H 14 V 16 H 12 Z" fill="#302524"/>
+                    <path d="M 14,16 H 26 V 18 H 24 V 22 H 22 V 24 H 18 V 22 H 16 V 18 H 14 Z" fill="#a2b9bc"/>
+                    <path d="M 19,24 H 21 V 30 H 19 Z" fill="#a2b9bc"/>
+                    <path d="M 18,30 H 22 V 31 H 18 Z" fill="#a2b9bc"/>
+                    <rect x="15" y="16" width="10" height="2" fill="#e0f0f2"/>
+                    <rect x="16" y="17" width="2" height="1" fill="#ffffff"/>
+                    ${Array.from({length: Math.min(num, 4)}, (_, i) => 
+                        `<g transform="translate(${8 + i * 7}, 6)">
+                            <path d="M 1,0 H 3 V 1 H 4 V 0 H 6 V 1 H 7 V 3 H 6 V 4 H 4 V 5 H 3 V 4 H 1 V 3 H 0 V 1 Z" fill="#e8b4b8"/>
+                         </g>`
+                    ).join('')}
+                </svg>`;
             },
-            3: {
-                title: "【失控的推土機】(The Unstoppable Juggernaut)",
-                stat1Label: "執念爆發力",
-                stat1Val: "98%",
-                stat2Label: "意志防線破壞力",
-                stat2Val: "94%",
-                psychology: "這張【THE PASSAGE】原本象徵目標明確、勇往直前的無限通道。然而，在黑化覺醒時，這條長廊將化作直通地獄深處、兩旁矗立著尖頂鐵柵的永恆通道。此時，你的道德約束與憐憫感會完全被「鋼鐵般的極致意志」所取代。在你的世界裡，沒有任何規則、紅燈或阻礙。唯一的教義，就是不計代價地抵達你心中的終點。",
-                power: "「毀滅性的正面碾壓」。當你體內的野獸被逼到臨界點，你的同理心會瞬間休眠，但精神爆發力與冷酷的執行效率卻會飆升到超自然的高度！你會用最瘋狂、最直接的鐵流執行力，硬生生撞碎對方苦心經營的所有現實與心理防線。這種玉石俱焚、視一切規則如無物的摧枯拉朽氣勢，會讓激怒你的人感到戰慄與徹骨的絕望。"
+            // 寶劍組：鋒利無比的像素寶劍與交織十字星芒
+            sword: (num) => {
+                return `<svg viewBox="0 0 40 48" width="100%" height="100%" style="image-rendering: pixelated;">
+                    <rect width="40" height="48" fill="#fcfbf7"/>
+                    <rect x="2" y="2" width="36" height="44" fill="none" stroke="#302524" stroke-width="2"/>
+                    <g transform="translate(10, 0)">
+                        <rect x="9" y="8" width="4" height="22" fill="#302524"/>
+                        <rect x="10" y="9" width="2" height="20" fill="#b0c4de"/>
+                        <rect x="10" y="9" width="1" height="20" fill="#ffffff"/> <rect x="6" y="30" width="10" height="3" fill="#302524"/>
+                        <rect x="7" y="31" width="8" height="1" fill="#c5a880"/>
+                        <rect x="10" y="33" width="2" height="5" fill="#302524"/>
+                        <rect x="10" y="38" width="3" height="3" fill="#ebdccb"/>
+                    </g>
+                    ${Array.from({length: Math.min(num, 3)}, (_, i) => 
+                        `<g transform="translate(${6 + i*13}, ${12 + i*8})">
+                            <rect x="2" y="0" width="1" height="5" fill="#c5a880"/>
+                            <rect x="0" y="2" width="5" height="1" fill="#c5a880"/>
+                            <rect x="2" y="2" width="1" height="1" fill="#ffffff"/>
+                         </g>`
+                    ).join('')}
+                </svg>`;
+            },
+            // 權杖組：帶有蓬勃嫩芽與木紋脈絡的像素手杖
+            wand: (num) => {
+                return `<svg viewBox="0 0 40 48" width="100%" height="100%" style="image-rendering: pixelated;">
+                    <rect width="40" height="48" fill="#fcfbf7"/>
+                    <rect x="2" y="2" width="36" height="44" fill="none" stroke="#302524" stroke-width="2"/>
+                    <g transform="translate(4, 4)">
+                        <path d="M 6,28 L 26,8" stroke="#302524" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M 6,28 L 26,8" stroke="#a28c75" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M 6,28 L 16,18" stroke="#7d6160" stroke-width="1" stroke-linecap="round"/> <rect x="24" y="5" width="4" height="4" fill="#302524"/>
+                        <rect x="25" y="6" width="2" height="2" fill="#ebdccb"/>
+                        <rect x="25" y="6" width="1" height="1" fill="#ffffff"/>
+                    </g>
+                    ${Array.from({length: Math.min(num, 4)}, (_, i) => 
+                        `<g transform="translate(${8 + i*7}, ${12 + (i%2)*14})">
+                            <rect x="1" y="1" width="3" height="3" fill="#302524"/>
+                            <rect x="2" y="2" width="1" height="1" fill="#8cb382"/>
+                         </g>`
+                    ).join('')}
+                </svg>`;
+            },
+            // 金幣組：亮麗奪目、帶有細緻十字星紋的像素星幣
+            pentacle: (num) => {
+                return `<svg viewBox="0 0 40 48" width="100%" height="100%" style="image-rendering: pixelated;">
+                    <rect width="40" height="48" fill="#fcfbf7"/>
+                    <rect x="2" y="2" width="36" height="44" fill="none" stroke="#302524" stroke-width="2"/>
+                    <g transform="translate(10, 14)">
+                        <path d="M 6,0 H 14 V 2 H 18 V 6 H 20 V 14 H 18 V 18 H 14 V 20 H 6 V 18 H 2 V 14 H 0 V 6 H 2 V 2 H 6 Z" fill="#302524" />
+                        <path d="M 6,2 H 14 V 4 H 16 V 6 H 18 V 14 H 16 V 16 H 14 V 18 H 6 V 16 H 4 V 14 H 2 V 6 H 4 V 4 H 6 Z" fill="#c5a880" />
+                        <path d="M 7,3 H 13 V 5 H 15 V 13 H 13 V 15 H 7 V 13 H 5 V 5 H 7 Z" fill="#e2c59a" />
+                        <rect x="9" y="5" width="2" height="10" fill="#302524"/>
+                        <rect x="5" y="9" width="10" height="2" fill="#302524"/>
+                        <rect x="9" y="9" width="2" height="2" fill="#ffffff" /> </g>
+                    ${Array.from({length: Math.min(num, 3)}, (_, i) => 
+                        `<rect x="${6 + i*13}" y="${8 + (i%2)*24}" width="3" height="3" fill="#e2c59a" stroke="#302524" stroke-width="1"/>`
+                    ).join('')}
+                </svg>`;
             }
         };
 
-        function selectCard(cardNumber, element) {
-            const allCards = document.querySelectorAll('.card-container');
-            
-            // 讓其他卡片變暗並不可點擊
-            allCards.forEach(card => {
-                if (card !== element) {
-                    card.style.pointerEvents = 'none';
-                    card.style.opacity = '0.25';
-                }
+        /* 完整 78 張塔羅牌結構定義 (22 張大阿爾克那 + 56 張小阿爾克那) */
+        const originalDeck = [
+            // 大阿爾克那 (0 - 21)
+            { roman: "0", name: "愚者", svg: pixelTemplates.major(0), up: "純真、自由、冒險、全新起點", rev: "魯莽、不負責任、逃避現實" },
+            { roman: "I", name: "魔術師", svg: pixelTemplates.major(1), up: "專注、創造力、計畫付諸實行", rev: "失去方向、執行力不足、幻滅" },
+            { roman: "II", name: "女祭司", svg: pixelTemplates.major(2), up: "直覺、潛意識、沉靜智慧、洞察", rev: "內心焦躁、忽視直覺、表面化" },
+            { roman: "III", name: "皇后", svg: pixelTemplates.major(3), up: "豐盛、精神滋養、美好契機、孕育", rev: "過度依賴、停滯不前、缺乏創造力" },
+            { roman: "IV", name: "皇帝", svg: pixelTemplates.major(4), up: "秩序、領導力、穩定、建構安全感", rev: "專制、缺乏彈性、掌控欲過強" },
+            { roman: "V", name: "教皇", svg: pixelTemplates.major(5), up: "引導、傳統信條、尋求智慧、契合", rev: "叛逆、過度教條、思想受限" },
+            { roman: "VI", name: "戀人", svg: pixelTemplates.major(6), up: "心靈契合、融洽關係、面臨良善抉擇", rev: "溝通阻塞、和諧失衡、面臨矛盾" },
+            { roman: "VII", name: "戰車", svg: pixelTemplates.major(7), up: "意志力、堅定目標、克服萬難取得勝利", rev: "方向偏差、失控、自我懷疑" },
+            { roman: "VIII", name: "力量", svg: pixelTemplates.major(8), up: "內在韌性、溫柔克服、強大自律力", rev: "情緒失控、無力感、走向極端" },
+            { roman: "IX", name: "隱士", svg: pixelTemplates.major(9), up: "內省、尋求真理、獨處沉澱、平靜", rev: "孤立、拒絕溝通、過度猜忌" },
+            { roman: "X", name: "命運之輪", svg: pixelTemplates.major(10), up: "轉折良機、順應天意、命定之變", rev: "抗拒改變、時機未至、事倍功半" },
+            { roman: "XI", name: "正義", svg: pixelTemplates.major(11), up: "誠實、因果平衡、明晰判斷、責任", rev: "不公對待、偏見、推卸責任" },
+            { roman: "XII", name: "倒吊人", svg: pixelTemplates.major(12), up: "換位思考、奉獻、心甘情願的等待", rev: "無謂犧牲、抗拒等待、維持現狀的內耗" },
+            { roman: "XIII", name: "死神", svg: pixelTemplates.major(13), up: "徹底告別、大破大立、迎向全新階段", rev: "拖延轉化、留戀過往、難以割捨" },
+            { roman: "XIV", name: "節制", svg: pixelTemplates.major(14), up: "剛柔並濟、和諧重整、情緒沉澱", rev: "失去平衡、過度極端、溝通不良" },
+            { roman: "XV", name: "惡魔", svg: pixelTemplates.major(15), up: "執念、物質束縛、內在欲望、警醒", rev: "重獲自由、覺醒、擺脫不健康習慣" },
+            { roman: "XVI", name: "高塔", svg: pixelTemplates.major(16), up: "破除陳規、突來巨變、重組根基", rev: "逃避重整、局勢動盪、內心恐慌" },
+            { roman: "XVII", name: "星星", svg: pixelTemplates.major(17), up: "希望、心靈療癒、平靜、指引之光", rev: "信心動搖、希望落空、感到迷失" },
+            { roman: "XVIII", name: "月亮", svg: pixelTemplates.major(18), up: "未知不安、夢境啟示、潛在隱憂", rev: "疑惑消除、真相大白、重獲清晰" },
+            { roman: "XIX", name: "太陽", svg: pixelTemplates.major(19), up: "能量充沛、純粹喜悅、成功、澄澈", rev: "短暫迷茫、前路受阻、熱情退卻" },
+            { roman: "XX", name: "審判", svg: pixelTemplates.major(20), up: "心靈覺醒、重大決定、原諒、新契機", rev: "推遲抉擇、自我懷疑、忽視召喚" },
+            { roman: "XXI", name: "世界", svg: pixelTemplates.major(21), up: "旅程歸一、功德圓滿、身心高度和諧", rev: "缺憾感、未竟之志、仍需努力" }
+        ];
+
+        // 動態生成小阿爾克那 56 張牌 (聖杯、寶劍、權杖、金幣各 14 張)
+        const suits = [
+            { id: "cup", name: "聖杯", template: pixelTemplates.cup, kws: ["情感交流", "人際連結", "感性滋養", "情緒波動"] },
+            { id: "sword", name: "寶劍", template: pixelTemplates.sword, kws: ["理智判斷", "思維衝突", "精神挑戰", "決斷力"] },
+            { id: "wand", name: "權杖", template: pixelTemplates.wand, kws: ["行動力", "熱情冒險", "事業挑戰", "直覺驅動"] },
+            { id: "pentacle", name: "金幣", template: pixelTemplates.pentacle, kws: ["物質基礎", "現實累積", "自律耕耘", "穩定豐盛"] }
+        ];
+
+        suits.forEach(suit => {
+            // 數字牌 Ace - 10
+            for (let i = 1; i <= 10; i++) {
+                const label = i === 1 ? "Ace" : i.toString();
+                originalDeck.push({
+                    roman: `${suit.name} ${label}`,
+                    name: `${suit.name} ${label}`,
+                    svg: suit.template(i),
+                    up: `${suit.kws[0]}、${suit.kws[1]}的正向發展與累積`,
+                    rev: `${suit.kws[2]}受阻、感到${suit.kws[3]}`
+                });
+            }
+            // 侍從、騎士、皇后、國王
+            const courts = ["侍從", "騎士", "皇后", "國王"];
+            courts.forEach((court, idx) => {
+                originalDeck.push({
+                    roman: `${suit.name} ${court}`,
+                    name: `${suit.name} ${court}`,
+                    svg: suit.template(idx + 5),
+                    up: `代表${suit.name}特質的${court}：展現成熟的${suit.kws[idx % 4]}與領導力`,
+                    rev: `代表${suit.name}特質的${court}逆位：能量失衡、感到${suit.kws[(idx+1) % 4]}的挫折`
+                });
             });
+        });
 
-            // 執行 3D 翻轉動畫
-            element.classList.add('flipped');
+        let drawnCards = [];
+        let flipHistory = [false, false, false];
 
-            // 延遲載入解析數據
+        // 10秒靜心呼吸儀式
+        function startBreathingRitual() {
+            const btn = document.getElementById("startBtn");
+            const guide = document.getElementById("ritualGuide");
+            const spread = document.getElementById("spreadRow");
+
+            btn.disabled = true;
+            document.getElementById("reportArea").style.display = "none";
+            
+            // 重置狀態與翻牌歷史
+            drawnCards = [];
+            flipHistory = [false, false, false];
+            for (let i = 0; i < 3; i++) {
+                document.getElementById(`inner${i}`).style.transform = "rotateY(0deg)";
+                const label = document.getElementById(`nameLabel${i}`);
+                label.classList.remove("show");
+                label.innerText = "";
+            }
+
+            // 重置精緻像素樹生長進度
+            const trunk1 = document.getElementById("trunkSegment1");
+            const trunk2 = document.getElementById("trunkSegment2");
+            const leaves = document.getElementById("treeLeaves");
+            const blossoms = document.getElementById("cherryBlossoms");
+
+            trunk1.style.opacity = "0";
+            trunk2.style.opacity = "0";
+            leaves.style.opacity = "0";
+            blossoms.style.opacity = "0";
+
+            // 吸氣 5 秒
+            guide.innerText = "吸氣：深深吸氣，拂拭心鏡塵埃，感知內在生命萌發...";
+            
             setTimeout(() => {
-                const data = gothicDatabase[cardNumber];
-                
-                // 動態填充文字
-                document.getElementById('resultTitle').innerText = `黑化型態：${data.title}`;
-                document.getElementById('psychologyText').innerText = data.psychology;
-                document.getElementById('powerText').innerText = data.power;
-                
-                // 替換核心指標名稱與數值
-                document.getElementById('stat-name-1').innerText = data.stat1Label;
-                document.getElementById('stat-val-1').innerText = data.stat1Val;
-                document.getElementById('stat-name-2').innerText = data.stat2Label;
-                document.getElementById('stat-val-2').innerText = data.stat2Val;
+                trunk1.style.opacity = "1";
+            }, 500);
 
-                // 顯示解析面板
-                const panel = document.getElementById('resultPanel');
-                panel.style.display = 'block';
+            setTimeout(() => {
+                trunk2.style.opacity = "1";
+            }, 1500);
 
-                // 啟動進度條動畫
-                setTimeout(() => {
-                    document.getElementById('stat-bar-1').style.width = data.stat1Val;
-                    document.getElementById('stat-bar-2').style.width = data.stat2Val;
-                }, 100);
+            setTimeout(() => {
+                leaves.style.opacity = "1";
+            }, 2500);
 
-                // 平滑滾動到結果面板
-                panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            // 呼氣 5 秒
+            setTimeout(() => {
+                guide.innerText = "呼氣：徐徐吐氣，心無旁騖，看，心樹上開出了溫柔的愛心...";
+                blossoms.style.opacity = "1";
+            }, 5000);
 
-            }, 800);
+            // 圓滿
+            setTimeout(() => {
+                guide.innerText = "靜心功成，心湖澄明。請點選下方牌卡，傾聽此刻映照。";
+                spread.classList.add("spread-active");
+                btn.disabled = false;
+                btn.innerText = "重新靜心調息";
+
+                // 從完整的 78 張牌庫中隨機抽取 3 張
+                const tempDeck = [...originalDeck];
+                for (let i = 0; i < 3; i++) {
+                    const idx = Math.floor(Math.random() * tempDeck.length);
+                    const chosen = tempDeck.splice(idx, 1)[0];
+                    const isRev = Math.random() < 0.5;
+                    drawnCards.push({ card: chosen, isRev });
+                }
+            }, 10000);
         }
 
-        function resetGame() {
-            // 隱藏面板，重置進度條
-            document.getElementById('resultPanel').style.display = 'none';
-            document.getElementById('stat-bar-1').style.width = '0%';
-            document.getElementById('stat-bar-2').style.width = '0%';
+        // 翻牌
+        function drawCard(index) {
+            if (drawnCards.length === 0) {
+                alert("請先點擊按鈕開始靜心吸吐，沉澱下來再翻牌。");
+                return;
+            }
+            if (flipHistory[index]) return;
 
-            // 恢復卡牌狀態
-            const allCards = document.querySelectorAll('.card-container');
-            allCards.forEach(card => {
-                card.classList.remove('flipped');
-                card.style.pointerEvents = 'auto';
-                card.style.opacity = '1';
+            const { card, isRev } = drawnCards[index];
+            const frontDiv = document.getElementById(`front${index}`);
+
+            frontDiv.innerHTML = `
+                <div class="watercolor-illustration ${isRev ? 'rev-effect' : ''}">
+                    ${card.svg}
+                </div>
+            `;
+
+            const label = document.getElementById(`nameLabel${index}`);
+            label.innerText = `${card.name}${isRev ? '（逆位）' : ''}`;
+            label.classList.add("show");
+
+            document.getElementById(`inner${index}`).style.transform = "rotateY(180deg)";
+            flipHistory[index] = true;
+
+            if (flipHistory.every(state => state === true)) {
+                setTimeout(showWatercolorReport, 800);
+            }
+        }
+
+        // 顯示解讀報告
+        function showWatercolorReport() {
+            const reportContent = document.getElementById("reportContent");
+            reportContent.innerHTML = "";
+
+            const timeline = [
+                { label: "過去之因 (心鏡所照之源)" },
+                { label: "現在之境 (當下投影之界)" },
+                { label: "未來之象 (心念所指之途)" }
+            ];
+
+            drawnCards.forEach((item, i) => {
+                const { card, isRev } = item;
+                const kwList = isRev ? card.rev : card.up;
+                const mainKw = kwList.split('、')[0];
+                let desc = "";
+
+                if (isRev) {
+                    desc = `【境由心造】逆位牌卡意味著此刻你在這個維度可能感到些許迷茫或「${mainKw}」的瓶頸。外界的窒礙往往是心鏡蒙塵的反射。這是一個溫柔的契機，邀請你往內看，重新拂拭這面鏡子，境況自會隨著心境轉化而開朗。`;
+                } else {
+                    desc = `【心澄境生】正位牌卡代表著你與當下「${mainKw}」的和諧能量正緊密契合。當心鏡清澈明亮，映照出來的世界便充滿智慧與方向。請信任你此刻的清明直覺，順應當下的境遇前行。`;
+                }
+
+                reportContent.innerHTML += `
+                    <div class="report-card">
+                        <div class="report-card-img ${isRev ? 'rev-effect' : ''}">
+                            ${card.svg}
+                        </div>
+                        <div class="report-card-text">
+                            <div class="report-card-header">
+                                <span class="report-card-title">${timeline[i].label} ─ ${card.name} (${isRev ? '逆位' : '正位'})</span>
+                                <span class="report-card-roman">${card.roman}</span>
+                            </div>
+                            <div class="report-card-keyword" style="color: #6a8362; font-weight: bold; font-size: 0.85rem; margin-bottom: 4px;">
+                                心靈語錄：${isRev ? '逆位能量的內省引導' : '正位能量的清明啟示'}
+                            </div>
+                            <div class="report-card-keyword">心靈印記：${kwList}</div>
+                            <p class="report-card-detail">${desc}</p>
+                        </div>
+                    </div>
+                `;
             });
 
-            // 滾動回頂部
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.getElementById("reportArea").style.display = "block";
+        }
+
+        // 複製報告
+        function copyReportText() {
+            let copyText = `心鏡似境 ‧ 和風像素塔羅占卜報告\n\n`;
+            drawnCards.forEach((item, i) => {
+                const stages = ["過去", "現在", "未來"];
+                copyText += `${stages[i]}：${item.card.name} (${item.isRev ? '逆位' : '正位'})\n`;
+                copyText += `心靈印記：${item.isRev ? item.card.rev : item.card.up}\n\n`;
+            });
+            copyText += `願這場像素禪意調息，拂去你此時心頭的所有微瀾。`;
+
+            navigator.clipboard.writeText(copyText).then(() => {
+                alert("占卜報告已成功複製。");
+            });
         }
     </script>
 </body>
